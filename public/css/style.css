@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: "Inter" !important;
+}
+
+nav {
+    padding: 1rem 2rem !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+    color: #FF385C  !important;
+    transition: .3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ff002f !important;
+}
+
+.navbar-brand .fa-compass {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem !important;
+    color: #222 !important;
+    font-weight: 400 !important;
+    margin-right: 0.5rem;
+}
+
+.wrapper {
+    padding: 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.listingTitle {
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    line-height: 1;
+    position: relative;
+}
+
+.listingTitle::after {
+    content: "";
+    position: absolute;
+    width: 88.5%;
+    left: 11rem;
+    height: 1px;
+    background-color: #FF385C;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 0rem;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.card {
+    width: 26rem;
+    height: 20rem;
+    border: none !important;
+}
+
+.card:hover .image-div .card-img-top {
+    scale: 1.05;
+}
+
+.image-div {
+    height: 20rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1.5rem !important;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.2s ease;
+
+}
+
+.card-body {
+    padding-left: 0 !important;
+    text-decoration: none;
+}
+
+p.description {
+    font-size: 1rem !important;
+    letter-spacing: -0.2px;
+}
+
+.infoDets {
+    padding: 1rem 3rem;
+}
+
+.Title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.Title::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #FF385C;
+    bottom: -4px;
+    left: 0;
+}
+
+.imageDiv {
+    width: 60%;
+    height: 70vh;
+    overflow: hidden;
+    border-radius: 1.5rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.description {
+    margin: 0.7rem 0;
+    font-size: 1.1rem !important;
+}
+
+.edit {
+    background-color: #FF385C !important;
+    border: 1px solid #FF385C  !important;
+}
+
+.edit:hover {
+    background-color: #ff617e !important;
+    border-color: #ff617e !important;
+}
+
+.form-control {
+    margin-bottom: 1.5rem !important;
+}
+
+.row-btns {
+    display: flex !important;
+    gap: 1rem;
+}
+
+/* @media (max-width: 600px) {
+    .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        background-color: red  !important;
+    }
+    body {
+        padding: 0 0rem !important;
+    }
+    .grid-layout {
+        margin: 0 !important;;
+        padding: 0 !important;
+        offset: 0 !important;
+        display: flex !important;
+        flex-direction: column;
+    }
+} */
+
+.previewDiv {
+    width: 73vw;
+    height: 79vh;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2vw;
+}
+
+.previewDiv .previewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.fa-solid {
+    display: block;
+    font-size: 2rem;
+}

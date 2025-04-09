@@ -1,0 +1,69 @@
+<%- layout("/layouts/boilderplate") -%>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2 mt-3">
+      <h2 class="Title">Add new listing</h2>
+      <form action="/wonderlust/new" method="post" class="needs-validation" enctype="multipart/form-data">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          name="Listing[title]"
+          class="form-control"
+          autocomplete="off"
+          required
+        />
+
+        <label for="description" class="form-label">Description</label>
+        <textarea
+          name="Listing[description]"
+          id=""
+          autocomplete="off"
+          class="form-control"
+          required
+        ></textarea>
+
+        <label for="image" class="form-label">Image URL</label>
+        <input
+          type="file"
+          name="Listing[image]"
+          class="form-control"
+          autocomplete="off"
+        />
+
+        <div class="row">
+          <div class="col-2">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="text"
+              name="Listing[price]"
+              class="form-control"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="col-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              name="Listing[location]"
+              class="form-control"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
+
+        <label for="country" class="form-label">Country</label>
+        <input
+          type="text"
+          name="Listing[country]"
+          class="form-control"
+          autocomplete="off"
+          required
+        />
+
+        <button class="btn btn-dark edit">Create</button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,67 @@
+<%- layout("/layouts/boilderplate") -%>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h2 class="mb-3 mt-3 Title">Edit</h2>
+      <form
+        action="/wonderlust/edit/<%= editData._id %>?_method=PATCH"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="title" class="form-label">Title</label>
+        <input autocomplete="off"
+          type="text"
+          name="title"
+          class="form-control"
+          value="<%= editData.title %>"
+        />
+
+        <label for="description" class="form-label">Description</label>
+        <textarea autocomplete="off" name="description" id="" class="form-control">
+<%= editData.description %></textarea
+        >
+        
+        <label for="image" class="form-label">Current Image</label> <br>
+        <img style="width: 300px; border-radius: 10px; height: 200px; object-fit: cover;" class="mb-3" src=<%= editData.image.url %> /> <br>
+
+        <label for="image" class="form-label">Upload new image</label>
+        <input autocomplete="off"
+          type="file"
+          name="image"
+          class="form-control"
+        />
+
+        <div class="row">
+          <div class="col-2">
+            <label for="price" class="form-label">Price</label>
+            <input autocomplete="off"
+              type="text"
+              name="price"
+              class="form-control"
+              value="<%= editData.price %>"
+            />
+          </div>
+          <div class="col-8">
+            <label for="location" class="form-label">Location</label>
+            <input autocomplete="off"
+              type="text"
+              name="location"
+              class="form-control"
+              value="<%= editData.location %>"
+            />
+          </div>
+        </div>
+
+        <label for="country" class="form-label">Country</label>
+        <input autocomplete="off"
+          type="text"
+          name="country"
+          class="form-control"
+          value="<%= editData.country %>"
+        />
+
+        <button class="btn btn-dark edit">Change</button>
+      </form>
+    </div>
+  </div>
+</body>

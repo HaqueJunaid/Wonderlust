@@ -1,0 +1,28 @@
+<%- layout("/layouts/boilderplate") -%>
+
+    <body>
+        <div class="wrapper">
+            <h3 class="listingTitle">All Listings</h3>
+            <div class="grid-layout">
+                <% for (data of listingData) { %>
+                    <a href="/wonderlust/<%= data._id %>">
+                        <div class="card">
+                            <div class="image-div">
+                                <img src="<%= data.image.url %>" class="card-img-top" alt="<%= data.image.filename %>" />
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-text"><strong>
+                                        <%= data.title %>
+                                    </strong></h5>
+                                <p class="description">
+                                    <%= data.description %>
+                                </p>
+                                <p class="price"><strong>&#8377; <%= data.price.toLocaleString('en-IN') %> / Night</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <% } %>
+            </div>
+            </wrapper>
+    </body>

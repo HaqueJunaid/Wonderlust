@@ -1,0 +1,98 @@
+<%- layout("/layouts/boilderplate") -%>
+<body>
+  <div class="infoDets">
+    <h1 class="Title"><%= infoData.title %></h1>
+    <div class="imageDiv">
+      <img src="<%= infoData.image.url %>" alt="<%= infoData.image.filename %>" />
+    </div>
+    <p class="description"><strong><%= infoData.owner.username %></strong></p>
+    <p class="description"><%= infoData.description %></p>
+    <p class="description">
+      <strong
+        >&#8377; <%= infoData.price.toLocaleString('en-IN') %> / Night</strong
+      >
+    </p>
+    <div class="row" style="margin-top: -14px">
+      <div class="col-4">
+        <p class="description">
+          <strong>Location: </strong><%= infoData.location %>
+        </p>
+      </div>
+      <div class="col-3">
+        <p class="description">
+          <strong>Country: </strong><%= infoData.country %>
+        </p>
+      </div>
+    </div>
+    <% if (auth && auth.equals(infoData.owner._id)) { %>
+      <div class="row-btns">
+        <a href="/wonderlust/edit/<%= infoData._id %>" class="btn btn-dark edit"
+          >Edit</a
+        >
+        <form
+          action="/wonderlust/<%= infoData._id %>?_method=DELETE"
+          method="post"
+        >
+          <button class="btn btn-outline-dark">Delete</button>
+        </form>
+      </div>
+    <% } %>
+
+    
+    <% if (auth) { %>
+      <div class="reviews mt-4 mb-4">
+        <h1 class="Title">Add Reviews</h1>
+        <div class="row">
+            <form action="/listings/<%= infoData._id %>/review" method="post">
+              <div>
+                <label for="review[rating]" class="form-label">Rating</label>
+                <fieldset class="starability-growRotate">
+                  <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                  <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                  <label for="first-rate1" title="Terrible">1 star</label>
+                  <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                  <label for="first-rate2" title="Not good">2 stars</label>
+                  <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                  <label for="first-rate3" title="Average">3 stars</label>
+                  <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                  <label for="first-rate4" title="Very good">4 stars</label>
+                  <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                  <label for="first-rate5" title="Amazing">5 stars</label>
+                </fieldset>
+              </div>
+              <div>
+                <label for="review[comment]" class="form-label">Comment</label>
+                <textarea
+                  autocomplete="off"
+                  rows="5"
+                  type="text"
+                  name="review[comment]"
+                  class="form-control"
+                  value=""
+                ></textarea>
+              </div>
+              <div>
+                <button class="btn btn-outline-dark">Add</button>
+              </div>
+            </form>
+        </div>
+      </div>  
+    <% } %>
+
+    <hr />
+    <div class="showRevie mt-4 mb-2 row offset-1">
+      <% for(data of infoData.reviews) { %>
+      <div class="card col-5 p-4 rounded-4 border border-dark mx-2 my-2">
+        <h3>@<%= data.author.username %></h3>
+        <p class="starability-result" data-rating="<%= data.rating %>"></p>
+        <p><%= data.comment %></p>
+        <% if (auth && auth.equals(data.author._id)) { %>
+          <form action="/wonderlust/<%= infoData._id %>/review/<%= data._id %>?_method=DELETE" method="post">
+            <button class="btn btn-sm btn-dark">Delete</button>
+          </form>
+        <% } %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</body>
