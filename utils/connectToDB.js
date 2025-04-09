@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectToDb = () => {
-    mongoose.connect(process.env.ATLAD_DB)
+    mongoose.connect(process.env.ATLAS_DB)
         .then(res => {
             console.log("Connected");
         })
